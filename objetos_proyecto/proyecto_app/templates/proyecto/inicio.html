@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEARCH EYE</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylesIndex.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../../static/img/LogoH.jpg" alt="Logo" class="Logo" >
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-content">
+                        <li><a href="../proyecto/createObject">Subir objeto </a></li>
+                        <li><a href="../proyecto/index">Lista de objetos</a></li>
+                    </ul>
+                </li>
+                <li><a href="../proyecto/login">Loggin</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="get-started">Get started</a>
+    </header>
+    <main>
+        <section class="banner">
+            <h2>Welcome to Search Eye</h2>
+            <a href="#" class="boton">Leer más</a>
+        </section>
+    
+        <section class="cards">
+            <div class="card">
+                <h2>Iniciar sesión</h2>
+                <img src="../../static/img/login.jpg" alt="Imagen de inicio de sesión">
+                <p>Accede a tu cuenta existente para disfrutar de la plataforma.</p>
+                <button onclick="location.href='proyecto/login'" type="button" class="boton">Login User</button>
+            </div>
+            
+            <div class="card">
+                <h2>Registrarse</h2>
+                <img src="../../static/img/create.jpg" alt="Imagen de registro">
+                <p>Crea una nueva cuenta para acceder a todos los beneficios.</p>
+                <button onclick="location.href='proyecto/createUser'" type="button" class="boton">Create User</button>
+            </div>
+        </section>
+    
+        <section class="about-section">
+            <div class="about-text">
+                <h2>Acerca sobre Search Eye</h2>
+                <p>Es una plataforma web, que ayuda a los estudiantes a buscar o publicar objetos perdidos dentro de la universiasd de san buenaventura.</p>
+            </div>
+            <div class="about-logo">
+                <img src="../../static/img/Logo.png" alt="">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../../static/img/Logo.png" alt="Search Eye Logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>About Search Eye</h2>
+                    <p>Search Eye is a web platform that helps students find or post lost items within the University of San Buenaventura.</p>
+                </div>
+                <div class="footer-section links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="../proyecto/login">Login</a></li>
+                        <li><a href="../proyecto/createUser.html">Register</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h2>Contact Us</h2>
+                    <p>Email: jstunubalas@correousbcali.edu.co</p>
+                    <p>Phone: +57 3218235939</p>
+                    <div class="socials">
+                        <a href="#"><img src="path/to/facebook-icon.png" alt="Facebook"></a>
+                        <a href="#"><img src="path/to/twitter-icon.png" alt="Twitter"></a>
+                        <a href="#"><img src="path/to/instagram-icon.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Search Eye. All rights reserved.</p>
+        </div>
+    </footer>
+
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        
+    {# Cargamos la librería #} 
+    {% load bootstrap4 %} 
+
+    {# CSS Bootstrap #} 
+    {% bootstrap_css %} 
+    
+    {# Widget Tweaks #}
+    {% load widget_tweaks %}
+
+    {# Archivos #}
+    {% load static %} <!-- STATIC_URL -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="{% static 'css/stylesInfoUser.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Perfil de Usuario</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Usuario" class="img-thumbnail">
+                        <ul class="list-inline ratings">
+                            <li><span class="glyphicon glyphicon-star"></span></li>
+                            <li><span class="glyphicon glyphicon-star"></span></li>
+                            <li><span class="glyphicon glyphicon-star"></span></li>
+                            <li><span class="glyphicon glyphicon-star"></span></li>
+                            <li><span class="glyphicon glyphicon-star"></span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>        
+                                    <td>ID de Usuario:</td>
+                                    <td>{{ User.id_usuario }}</td>
+                                </tr>
+                                <tr>    
+                                    <td>Nombre:</td>
+                                    <td>{{ User.nombre_usuario }}</td>
+                                </tr>
+                                <tr>        
+                                    <td>Email:</td>
+                                    <td>{{ User.email }}</td>
+                                </tr>
+                                <tr>        
+                                    <td>Número de Teléfono:</td>
+                                    <td>{{ User.celular }}</td>
+                                </tr>
+                                <tr>        
+                                    <td>Rol:</td>
+                                    <td>Admin</td>
+                                </tr>
+                                <tr>        
+                                    <td>Fecha de Creación:</td>
+                                    <td>20 jul 2014</td>
+                                </tr>
+                                <tr>        
+                                    <td>Última Modificación:</td>
+                                    <td>20 jul 2014 20:00:00</td>
+                                </tr>                                    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# JS y jQuery Bootstrap #}
+    {% bootstrap_javascript jquery='full' %} 
+</body>
+</html>

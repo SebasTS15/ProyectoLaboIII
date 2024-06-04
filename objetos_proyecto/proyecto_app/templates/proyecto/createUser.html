@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+
+    {% load bootstrap4 %} 
+    {% bootstrap_css %}
+    {% load widget_tweaks %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylesCreateUser.css' %}">
+</head>
+<body>
+    <section class="h-100 gradient-form">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card text-white">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <p>Por favor, completa tus datos</p>
+                                    
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="username">Nombre de Usuario</label>
+                                            <input type="text" id="username" name="username" class="form-control" placeholder="Nombre de usuario" />
+                                        </div>
+                                        
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="phone">Número de Teléfono</label>
+                                            <input type="number" id="phone" name="phone" class="form-control" placeholder="Número de teléfono"/>
+                                        </div>
+                                    
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="email">Correo Electrónico</label>
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="Correo electrónico"/>
+                                        </div>
+                                    
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="password">Contraseña</label>
+                                            <input type="password" id="password" name="password" class="form-control" />
+                                        </div>
+                                    
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="sexo">Género</label>
+                                            <input type="text"id="sexo" name="sexo" class="form-control"/>
+                                        </div>
+                                    
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <button class="btn btn-primary btn-block" type="submit">Crear</button>
+                                            <a class="text-muted" href="#!">¿Olvidaste tu contraseña?</a>
+                                        </div>
+                                    
+                                        <div class="d-flex align-items-center justify-content-center pb-4">
+                                            <p class="mb-0 me-2">¿Ya tienes una cuenta?</p>
+                                            <button onclick="location.href='../login'" type="button" class="btn btn-outline-danger">Iniciar Sesión</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <div class="text-center">
+                                        <img src="{% static 'img/Logo.png' %}" style="width: 185px;" alt="logo">
+                                        <h4 class="mt-1 mb-5 pb-1">Bienvenido a Search Eye</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Objetos Perdidos</title>
+    
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% load widget_tweaks %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylesCrearObjeto.css' %}">
+</head>
+<body>
+    <header class="header">
+        <img src="{% static 'img/Logo.png' %}" alt="Logo" class="header-logo">
+    </header>
+    <div class="container mt-4">
+        <h1 class="text-center">Registro de Objetos Perdidos</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre_objeto" class="txt_negrita">Nombre del Objeto:</label>
+                <input type="text" id="nombre_objeto" name="nombre_objeto" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo_objeto" class="txt_negrita">Tipo de Objeto:</label>
+                <select id="tipo_objeto" name="tipo_objeto" class="form-control" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="documento">Documento</option>
+                    <option value="electronico">Electrónico</option>
+                    <option value="prenda">Prenda de vestir</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidad_objeto" class="txt_negrita">Cantidad:</label>
+                <input type="number" id="cantidad_objeto" name="cantidad_objeto" class="form-control" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_objeto" class="txt_negrita">Fecha de Pérdida:</label>
+                <input type="date" id="fecha_objeto" name="fecha_objeto" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="img" class="txt_negrita">Imagen del Objeto (opcional):</label>
+                <input type="file" id="img" name="img" class="form-control-file mb-3">
+            </div>
+            <div class="form-group">
+                <label for="lugar_perdiad" class="txt_negrita">Lugar donde se Perdió:</label>
+                <input type="text" id="lugar_perdiad" name="lugar_perdiad" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Objeto</button>
+            <a href="../proyecto/index" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>

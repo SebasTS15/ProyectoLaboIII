@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    {# Cargamos la librería #} 
+    {% load bootstrap4 %} 
+
+    {# CSS Bootstrap #} 
+    {% bootstrap_css %} 
+    
+    {# Widget Tweaks #}
+    {% load widget_tweaks %}
+
+    {# Archivos #}
+    {% load static %} <!-- STATIC_URL -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Objeto</title>
+    <link rel="stylesheet" href="{% static 'css/stylesInfoObjeto.css' %}">
+</head>
+<body>
+    <header class="mysterious-header">
+        <div class="container">
+            <img src="{% static 'img/Logo.png' %}" alt="Logo" class="logo">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Detalles del Objeto</h1>
+
+        <div class="object-details">
+            <h4>Datos del Objeto</h4>
+            <ul>
+                <li><span class="txt_negrita">Nombre:</span> {{ object.nombre_objeto }}</li>
+                <li><span class="txt_negrita">Tipo:</span> {{ object.tipo_objeto }}</li>
+                <li><span class="txt_negrita">Cantidad:</span> {{ object.cantidad_objeto }}</li>
+                <li><span class="txt_negrita">Lugar Perdido:</span> {{ object.lugar_perdido }}</li>
+            </ul>
+
+            <h4>Información Adicional</h4>
+            <ul>
+                <li><span class="txt_negrita">Imagen:</span></li>
+                <li><img src="{% static 'uploads/'%}{{object.img}}" alt="{{object.nombre_objeto}}" class="img-fluid mb-3"></li>
+                <li><span class="txt_negrita">Creado:</span> {{ object.created_at }}</li>
+                <li><span class="txt_negrita">Actualizado:</span> {{ object.updated_at }}</li>
+            </ul>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="../index" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    {# JS y jQuery Bootstrap #}
+    {% bootstrap_javascript jquery='full' %} 
+
+</body>
+</html>

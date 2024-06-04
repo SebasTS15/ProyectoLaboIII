@@ -1,0 +1,51 @@
+body {
+    height: 100%;
+    background-image: url("../img/fondoLog.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.gradient-form {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.9);
+    border: none;
+}
+
+.card-body {
+    color: #fff;
+}
+
+.form-control {
+    background: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.form-control:focus {
+    background: #444;
+    border-color: #888;
+}
+
+.btn-primary {
+    background: #4e5d94;
+    border: none;
+}
+
+.btn-outline-danger {
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.btn-outline-danger:hover {
+    background: #ff6b6b;
+    color: #fff;
+}
+
+.gradient-custom-2 {
+    background: linear-gradient(to right, #232526, #414345);
+}

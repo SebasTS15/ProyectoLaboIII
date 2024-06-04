@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Objeto</title>
+    
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% load widget_tweaks %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylesEditObjeto.css' %}">
+</head>
+<body>
+    <header class="header">
+        <img src="{% static 'img/Logo.png' %}" alt="Logo" class="header-logo">
+    </header>
+    <div class="container mt-4">
+        <h1 class="text-center">Editar Objeto</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre_objeto" class="txt_negrita">Nombre:</label>
+                <input type="text" id="nombre_objeto" name="nombre_objeto" class="form-control" value="{{ Objeto.nombre_objeto }}" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo_objeto" class="txt_negrita">Tipo de Objeto:</label>
+                <select id="tipo_objeto" name="tipo_objeto" class="form-control" value="{{ Objeto.tipo_objeto }}" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="documento">Documento</option>
+                    <option value="electronico">Electrónico</option>
+                    <option value="prenda">Prenda de vestir</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidad_objeto" class="txt_negrita">Cantidad:</label>
+                <input type="number" id="cantidad_objeto" name="cantidad_objeto" class="form-control" value="{{ Objeto.cantidad_objeto }}" required>
+            </div>
+            <div class="form-group">
+                <label for="img" class="txt_negrita">Imagen (opcional):</label>
+                <input type="file" id="img" name="img" class="form-control-file mb-3">
+            </div>
+            <div class="form-group">
+                <label for="lugar_perdiad" class="txt_negrita">Lugar donde se Perdió:</label>
+                <input type="text" id="lugar_perdiad" name="lugar_perdiad" class="form-control" value="{{ Objeto.fecha_objeto }}" required>
+            </div>
+            <div class="form-group">
+                <p class="txt_negrita">Imagen Actual:</p>
+                <img src="{% static 'uploads/'%}{{object.img}}" class="img-fluid mb-3" alt="{{object.nombre_objeto}}">
+            </div>
+            <div class="form-group d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a href="../index" class="btn btn-secondary">Volver</a>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>

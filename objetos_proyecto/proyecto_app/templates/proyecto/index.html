@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Objeto</title>
+    
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% load widget_tweaks %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylesObjetos.css' %}">
+</head>
+<body>
+    <header class="header">
+        <img src="{% static 'img/Logo.png' %}" alt="Logo" class="header-logo">
+    </header>
+    <div class="container">
+        <h1>Lista de Objeto</h1>
+        <div class="btn_crear mb-3">
+            <a href="createObject" type="button" class="btn btn-primary">Crear</a>
+            <a href="../proyecto/infoUser/{{User.id_user}}" type="button" class="btn btn-primary float-right">Mi cuenta</a>
+        </div>
+        <div class="row">
+            {% for Objeto in object_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{% static 'uploads/'%}{{Objeto.img}}" alt="{{Objeto.nombre_objeto}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ Objeto.nombre_objeto }}</h5>
+                        <p class="card-text">Tipo: {{ Objeto.tipo_objeto }}</p>
+                        <p class="card-text">Cantidad: {{ Objeto.cantidad_objeto }}</p>
+                        <p class="card-text">Fecha de pérdida: {{ Objeto.fecha_objeto }}</p>
+                        <p class="card-text">Lugar de pérdida: {{ Objeto.lugar_perdiad }}</p>
+                        <div class="btn-group" role="group">
+                            <a href="detalle/{{Objeto.id_objeto}}" title="Ver" class="btn btn-success">Ver</a>
+                            <a href="editar/{{Objeto.id_objeto}}" title="Editar" class="btn btn-primary">Editar</a>
+                            <form method="POST" action="eliminar/{{Objeto.id_objeto}}" onsubmit="return eliminar();">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>
